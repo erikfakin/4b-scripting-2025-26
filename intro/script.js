@@ -14,5 +14,14 @@ console.log("Il mio nome e' " + nome);
 
 // ERRORE: non si possono riassegnare valori a constanti
 // Uncaught TypeError: Assignment to constant variable.
-nome = "Kire";
-console.log("Il mio nome e' " + nome);
+// nome = "Kire";
+// console.log("Il mio nome e' " + nome);
+
+// Tipi di variabili
+console.log("Tipo di variabile prezzo:", typeof prezzo);
+
+console.log("Tipo di variabile nome:", typeof nome);
+
+const isOpen = true;
+
+console.log("Tipo di variabile isOpen:", typeof isOpen);
