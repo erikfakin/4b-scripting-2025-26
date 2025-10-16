@@ -19,3 +19,25 @@ informazioniViaggio(velocita2, tempo2, efficienza2);
 
 informazioniViaggio(40, 12, 3);
 
+// Possiamo salvare un funzione anonima in una variabile
+const saluta = function (nome) {
+    console.log(`Ciao a tutti, il mio nome e' ${nome}!!!`);
+};
+
+saluta('Erik');
+
+// Arrow function. Modo piu corto per dichiarare funzioni
+const conta = (numero) => {
+    for(let i=1; i<=numero;i++){
+        console.log(i);
+    }
+}
+conta(100);
+
+// Con return "ritorno" certi dati dalla funzione, output
+function calcolaAreaCerchio(raggio){
+    return Math.PI * (raggio **2)
+}
+
+const area1 = calcolaAreaCerchio(3);
+console.log(`Area del cerchio con raggio 3 e' ${area1}`);
