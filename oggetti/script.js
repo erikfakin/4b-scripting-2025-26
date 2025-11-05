@@ -1,12 +1,16 @@
-function Rinoceronte(nome, eta){
-    this.nome = nome;
-    this.eta = eta;
-    this.ciboPreferito = "Salata";
-    this.corri = function () {
+class Rinoceronte {
+    constructor(nome, eta) {
+        this.nome = nome;
+        this.eta = eta;
+    }
+
+    ciboPreferito = "Salata";
+
+    corri() {
         console.log(`Io sono ${this.nome} e sto correndo!`);
     };
 
-    this.saluta = function(nome) {
+    saluta(nome) {
         console.log(`Ciao ${nome} io sono il rinoceronte ${this.nome}
              e il mio cibo preferito e' ${this.ciboPreferito}`);
     };
