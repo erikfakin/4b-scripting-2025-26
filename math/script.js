@@ -24,3 +24,8 @@ console.log("Diagonale:", diagonale);
 const numeroACaso = Math.random() * 100;
 console.log("Numero a caso:", numeroACaso);
 
+// Es. Calcola l'altezza dell'edificio se l'ombra
+// e lunga 17.35m e l'angolo tra il sole e la terra e' 30°
+// 30°= PI/6
+const altezza = 17.35 * Math.tan(Math.PI / 6);
+console.log("L'altezza dell'edificio e'", altezza);
