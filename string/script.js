@@ -41,3 +41,4 @@ console.log(ilMioCane.toLocaleLowerCase());
 console.log(ilMioCane.replace("cane", "squalo"));
 // replace non mi cambia la stringa originale
 console.log(ilMioCane);
+
