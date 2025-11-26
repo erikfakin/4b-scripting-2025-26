@@ -1,0 +1,14 @@
+body.dark{
+    background-color: #111;
+    color: #fff;
+}
+
+.w3-top{
+    background-color: white;
+    color: black;
+}
+
+body.dark .w3-top{
+    background-color: #111;
+    color: white;
+}
