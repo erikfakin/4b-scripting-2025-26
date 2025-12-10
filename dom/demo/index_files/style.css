@@ -2,13 +2,21 @@ body.dark{
     background-color: #111;
     color: #fff;
 }
-
+body{
+    transition: all 0.2s;
+}
 .w3-top{
     background-color: white;
     color: black;
+    transition: all 0.2s;
 }
 
 body.dark .w3-top{
     background-color: #111;
     color: white;
+    border-bottom: 1px solid #555;
+}
+
+body.dark .w3-display-bottomleft{
+    color: #111;
 }
