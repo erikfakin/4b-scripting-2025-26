@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS negozio_supereroi;
 CREATE DATABASE IF NOT EXISTS negozio_supereroi;
 USE negozio_supereroi;
 

@@ -19,7 +19,7 @@ INSERT INTO prodotti (nome, id_categoria, prezzo, quantita_disponibile, descrizi
 ('Superman', 2, 42.50, 15, 'Eroe di Metropolis design moderno.', 'immagini/superman.jpg'),
 ('Flash', 2, 38.00, 10, 'Effetti elettrici trasparenti.', 'immagini/flash.webp'),
 ('Harley Quinn Classic', 2, 30.00, 25, 'Costume da giullare originale.', 'immagini/harley-quinn.webp'),
-('Goku Super Saiyan', 3, 25.00, 30, 'Posa d'attacco iconica.', 'immagini/goku.webp');
+('Goku Super Saiyan', 3, 25.00, 30, "Posa d'attacco iconica.", 'immagini/goku.webp');
 
 -- 6. INSERIMENTO ORDINI
 INSERT INTO ordini (totale_ordine, indirizzo_spedizione, stato_ordine) VALUES 
@@ -32,7 +32,7 @@ INSERT INTO ordini (totale_ordine, indirizzo_spedizione, stato_ordine) VALUES
 -- 7. INSERIMENTO DETTAGLI ORDINI (Collegamento prodotti-ordini)
 INSERT INTO dettagli_ordine (id_ordine, id_prodotto, quantita, prezzo_unitario) VALUES 
 (1, 1, 1, 45.00), (1, 2, 1, 89.90), -- Ordine 1
-(2, 5, 1, 110.00), (2, 17, 1, 95.00), -- Ordine 2
+(2, 5, 1, 110.00), (2, 6, 1, 95.00), -- Ordine 2
 (3, 6, 1, 25.00), (3, 1, 1, 45.00), -- Ordine 3
 (4, 4, 1, 120.00), -- Ordine 4
 (5, 3, 1, 55.00); -- Ordine 5
