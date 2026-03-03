@@ -12,8 +12,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-
-$sql = "SELECT * FROM prodotti";
+$id_prodotto = $_GET['id'];
+$sql = "SELECT * FROM prodotti WHERE id_prodotto=$id_prodotto";
 // Execute the SQL query
 $result = $conn->query($sql);
 
@@ -21,16 +21,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // Output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "<div>
-      <img width='250' src='" . $row['url_immagine'] ."' >
-      <h3>". $row['nome'] . "</h3>
-      <p>" . $row['prezzo']  . " €</p>
-      <p>" . $row['quantita_disponibile']  . " pezzi disponibili </p>
-    </div>" ;
-  }
-} else {
-  echo "0 results";
-}
+    echo "<h1>". $row['nome'] ."</h1>
+            <img src='" . $row['url_immagine'] ."' />
+            <p>". $row['descrizione'] ."</p>
+            <p>". $row['prezzo'] ."€</p>
+            <p>" . $row['quantita_disponibile'] . " pezzi disponibili</p>
+            <p>" . $row['data_aggiunta'] . "</p>
+            ";
 
-$conn->close();
-?>
+  }
+}
