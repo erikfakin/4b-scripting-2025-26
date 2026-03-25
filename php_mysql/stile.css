@@ -1,0 +1,263 @@
+﻿/* ============================================
+   RADIOACTIVE GOTHIC — Design System
+   ============================================ */
+
+/* --- Design Tokens --- */
+:root {
+  --surface:                  #131313;
+  --surface-container-lowest: #0f0f0f;
+  --surface-container-low:    #1b1b1b;
+  --surface-container:        #1f1f1f;
+  --surface-container-high:   #2a2a2a;
+  --surface-container-highest:#2a2a2a;
+  --surface-variant:          #2f2f3a;
+  --on-surface:               #e2e2e2;
+  --on-surface-variant:       #c4c0ce;
+
+  --primary:            #cfbcff;
+  --primary-container:  #6200ea;
+  --on-primary:         #1a0050;
+
+  --secondary:           #ffb692;
+  --secondary-container: #fd6c00;
+  --on-secondary:        #1a0e00;
+
+  --tertiary:           #00e475;
+  --tertiary-fixed:     #62ff96;
+  --tertiary-container: #00522a;
+  --on-tertiary-container: #62ff96;
+
+  --outline-variant: rgba(100, 90, 130, 0.3);
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Base --- */
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* --- Nav: Glass & Gradient --- */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(47, 47, 58, 0.6);
+  background-image: linear-gradient(90deg,
+    rgba(98, 0, 234, 0.15) 0%,
+    rgba(19, 19, 19, 0.15) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav img {
+  filter: drop-shadow(0 0 8px var(--primary));
+  flex-shrink: 0;
+}
+
+nav a {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--on-surface-variant);
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+nav a[aria-disabled="true"] {
+  color: var(--primary);
+  pointer-events: none;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.75rem;
+  padding: 3rem 2.5rem;
+  background-color: var(--surface-container-low);
+}
+
+/* --- Product Card: Asymmetric Corners --- */
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: var(--on-surface);
+  background: var(--surface-container-highest);
+  border-radius: 0 0 1.5rem 0;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 20px 0px rgba(0, 228, 117, 0.2);
+}
+
+/* Organic image masking */
+.product-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--surface-container);
+}
+
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+  transition: clip-path 0.4s ease, transform 0.4s ease;
+  display: block;
+}
+
+.product-card:hover .product-img-wrap img {
+  clip-path: polygon(0 0, 96% 0, 100% 4%, 100% 100%, 4% 100%, 0 96%);
+  transform: scale(1.04);
+}
+
+/* Product info panel */
+.product-info {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+/* Product name: Epilogue, all-caps, negative tracking */
+.product-name {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 900;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+/* Price: Space Grotesk + Toxic Green pulse */
+.product-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--tertiary);
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  animation: ingredient-pulse 3s ease-in-out infinite;
+}
+
+/* Quantity: muted label */
+.product-qty {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  opacity: 0.8;
+}
+
+/* Ingredient Pulse — breathing green glow */
+@keyframes ingredient-pulse {
+  0%, 100% { text-shadow: 0 0 0px rgba(0, 228, 117, 0); }
+  50%       { text-shadow: 0 0 14px rgba(0, 228, 117, 0.65); }
+}
+
+/* No-results message */
+.no-results {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: var(--secondary);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+/* ============================================
+   Form (aggiungi_forma.php)
+   ============================================ */
+form {
+  max-width: 520px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2.5rem 2rem;
+  background: var(--surface-container-low);
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+form label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-surface-variant);
+}
+
+form input,
+form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--outline-variant);
+  color: var(--on-surface);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-bottom-color: var(--tertiary);
+  box-shadow: 0 3px 0 -2px rgba(0, 228, 117, 0.35);
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Primary button: sharp edges, orange */
+button,
+input[type="submit"] {
+  background: var(--secondary-container);
+  color: var(--on-secondary);
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: 0;
+  padding: 0.9rem 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  align-self: flex-start;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  box-shadow: 0 0 18px 4px rgba(253, 108, 0, 0.45);
+}
