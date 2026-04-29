@@ -1,0 +1,1 @@
+<!-- DELETE FROM libri WHERE id_libro = -->
